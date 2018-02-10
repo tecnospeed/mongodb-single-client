@@ -1,0 +1,36 @@
+{
+  "name": "mongodb-single-client",
+  "version": "0.0.1",
+  "description": "A singleton connection from MongoDB MongoClient for Node.js projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tecnospeed/mongodb-single-client.git"
+  },
+  "keywords": [
+    "mongodb",
+    "mongo",
+    "singleton",
+    "connection",
+    "client",
+    "simple",
+    "nodejs",
+    "node"
+  ],
+  "author": "Guilherme Rodrigues de Oliveira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tecnospeed/mongodb-single-client/issues"
+  },
+  "homepage": "https://github.com/tecnospeed/mongodb-single-client#readme",
+  "dependencies": {
+    "mongodb": "^3.0.2"
+  },
+  "devDependencies": {
+    "jest": "^22.2.2",
+    "prettier-standard": "^8.0.0"
+  }
+}

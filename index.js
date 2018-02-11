@@ -1,21 +1,22 @@
 const { MongoClient } = require('mongodb')
 
-const URLConnection = process.env.MONGODB_URL
-const Database = process.env.MONGODB_DATABASE
+let connection
 
-var connection
-
-const connectionConfig = {
+const defaultConnectionConfig = {
   ignoreUndefined: true
 }
 
-module.exports = collectionName => connection.collection(collectionName)
+const getCollection = collectionName =>
+  connection.collection(collectionName)
 
-module.exports.connect = callback =>
-  MongoClient.connect(URLConnection, connectionConfig, (err, client) => {
-    if (err) return callback(err)
+const connect = ({ url, database, connectionConfig = defaultConnectionConfig }, done) =>
+  MongoClient.connect(url, connectionConfig, (err, client) => {
+    if (err) return done(err)
 
-    connection = client.db(Database)
+    connection = client.db(database)
 
-    return callback()
+    return done()
   })
+
+module.exports = getCollection
+module.exports.connect = connect
